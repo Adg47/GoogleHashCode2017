@@ -55,7 +55,7 @@ def return_cellule(x,y):
 ################################
 
 #recup fichier
-fichier_infos = recuperer_fichier("/comptes/etudiant/E179037F/Documents/Polyhash/charleston_road.in")
+fichier_infos = recuperer_fichier("./charleston_road.in")
 donnees = fichier_infos[1]
 
 # ===== Variables globales ====== #
