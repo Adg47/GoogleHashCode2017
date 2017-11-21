@@ -6,9 +6,22 @@ prix_routeur = Pr
 prix_backbone= prixuncable
 liste_map=[]
 
+def elimination(coordonnees, routeur):
+    #dans cette fonction je dois partir de ma case et regarder si dans le rectangle quelle forme avec le routeur
+    #j'ai un mur ou non
+    res = False
+    cellule = coordtocell(coordonnees)
+    x = abs(coordonnees[0] - routeur.cellule.coord[0]) +1 #largeur rectangle
+    y = abs(coordonnees[1] - routeur.cellule.coord[1]) +1 #hauteur rectangle
+    for i in range (x) :
+        for j in range (y) :
+            cellule_a_verifier = coordtocell([coordonnees[0]-i,coordonnees[1]-j])
+            
+            if cellule_a_verifier != None : # On vérifie qu'il y a bien une cellule
+                if (verif_MurCellule(cellule_a_verifier)== True) : #Présence d'un mur
+                    res = True 
+    return res  # Si ça élimine alors true sinon false car on la garde
 
-def elimination :
-    return("c'est a la reine des michtos de faire")
 
 def verif_MurCellule(cellule): #Permet de vérifier si une cellule est un mur ou non
     if(cellule.type=='#'):
