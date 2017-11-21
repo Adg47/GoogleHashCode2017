@@ -89,11 +89,9 @@ def score (liste_routeurs):
 
 
 ######################
-result=creation_cellules_Routeurs()
-liste_map = result[0]
-liste_routeurs = result[1]
-backbone = result[2]
+#valeurs données à titre indicatif
 Pb = 12
 Pr = 1
 B = 55
-print(verif_budget())
+backbone=[]
+r=6
