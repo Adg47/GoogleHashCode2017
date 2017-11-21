@@ -1,4 +1,3 @@
-
 ##### Vérification du type de case des routeurs et changement si besoin ####
 
             
@@ -59,10 +58,10 @@ class Cellule :
         self.etat_wifi = etat_couverture #True ou false
 
 class Routeur :
-    def __init__(self, rayon, cellule):
+    def __init__(self, cellule, liste_cellules_couvertes ):
         self.cellule = cellule
         self.rayon = rayon
-        self.liste_cellules_couvertes = None #liste des cellules couvertes par le wifi
+        self.liste_cellules_couvertes = liste_cellules_couvertes  #liste des cellules couvertes par le wifi
 
     def ajout_cellules_dansListeCouverture(cellule):
         self.liste_cellules_couvertes.append(cellule) #Ajoute une cellule à la liste
