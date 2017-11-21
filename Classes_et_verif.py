@@ -89,9 +89,10 @@ def score (liste_routeurs):
 
 
 ######################
-#valeurs données à titre indicatif
+VARIABLES
+liste_routeurs=[] #liste d'éléments de classe routeur
 Pb = 12
 Pr = 1
 B = 55
-backbone=[]
-r=6
+backbone=[]  #liste de coordonnées, initialisation à voir
+r=6   #rayon
