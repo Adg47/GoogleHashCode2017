@@ -36,7 +36,7 @@ def liste_couvertes(cellrouteur):
             liste.append(a)
     return(liste)
 
-+
+
 def plusfort(listecandidats):  #choisit le candidat routeur qui couvre le plus de nouvelle cases
     c=0
     for candidat in listecandidats :
