@@ -96,3 +96,4 @@ Pr = 1
 B = 55
 backbone=[]  #liste de coordonnées, initialisation à voir
 r=6   #rayon
+liste_map: liste de cellule
