@@ -8,7 +8,7 @@ liste_map=[]
 
 
 def elimination :
-    return("c'est a typhaine de faire")
+    return("c'est a la reine des michtos de faire")
 
 def verif_MurCellule(cellule): #Permet de vérifier si une cellule est un mur ou non
     if(cellule.type=='#'):
