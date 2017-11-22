@@ -80,6 +80,7 @@ def voisins(case):            #retourne la liste des coordonnées des cases vois
 def verif_budget():
     if( ((len(backbone))*Pb + (len(liste_routeurs))*Pr) > B): #nbre cellules cablées et nbre routeurs
         return "Hors budget !!!!!!"
+    return ((len(backbone))*Pb + (len(liste_routeurs))*Pr)
 
 def score (liste_routeurs):
     nbre_celluleWifi = 0
