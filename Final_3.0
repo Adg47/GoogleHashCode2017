@@ -261,12 +261,12 @@ def score (liste_routeur):
 # --------------------------------
 def fichier_de_fin(backbone,liste_routeur):
     with open("D:\Documents\G12_charleston_road.out","a") as fichier:
-        count_cellConnect = str(len(backbone))+'# cellules connectées\n'
+        count_cellConnect = str(len(backbone))+'\n'
         fichier.write(count_cellConnect)
         for cell in backbone:
             ajout = str(cell[0])+' '+str(cell[1])+'\n'
             fichier.write(ajout)
-        count_routeurs = str(len(liste_routeurs))+'# routeurs \n'
+        count_routeurs = str(len(liste_routeurs))+'\n'
         fichier.write(count_routeurs)
         for cell in liste_routeurs:
             ajout = str(cell.cellule.coord[0])+' '+str(cell.cellule.coord[1])+'\n'
