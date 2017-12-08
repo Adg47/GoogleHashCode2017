@@ -123,7 +123,7 @@ def liste_couvertes(cellrouteur):
     # Coord contient juste les coordonnées de cellrouteur, la case dont nous allons retourner
     # la liste des cases qui seraient couvertes si cette case était routeur
     for a in liste_map :
-        if dist(coord,a.coord) < rayon and elimination(a.coord,cellrouteur) == False and a.etat_wifi == False :  # a est la case évaluée, cellrouteur est le routeur considéré
+        if dist(coord,a.coord) < rayon and elimination(a.coord,cellrouteur) == False and a.etat_wifi == False and a.type=='.' :  # a est la case évaluée, cellrouteur est le routeur considéré
             liste.append(a)
     return liste
 # --------------------------------
@@ -175,7 +175,7 @@ def Placer_routeur():
             # On crée une liste vide qui accueillera la liste des candidats à devenir routeurs
             listcandidrout = []
             for cellule in liste_map :
-                if dist(cellule.coord,case.coord) < rayon and cellule.type !='#' :
+                if dist(cellule.coord,case.coord) < rayon and cellule.type !='.' :
                     listcandidrout.append(cellule)
             (cell,l)=(plusfort(listcandidrout))
             # Coord est la paire de coordonnées du routeur choisi, celui qui couvre le plus de nouvelles cases,
