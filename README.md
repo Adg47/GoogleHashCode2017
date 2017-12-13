@@ -9,11 +9,15 @@ Alexis : Traitement du fichier de sortie, création du montage vidéo
 Raphaël : Création de la fonction gérant le backbone, architecture et codage de la fonction PlacerRouteurs()
 
 #procédure d'installation
-Rien à installer pour lancer le programme à part quelque chose pour exécuter un programme en python
+Besoin d'un logiciel ou autres qui puissent exécuter un programme python
+
 #procédure d'éxécution
-Pour l’instant il faut changer le nom de la carte à l’intérieur du code mais cela va bientôt être changé pour que l’on passe en paramètre le nom de la carte et pouvoir exécuter directement.
+Le chemin de la carte à analyser est demandé en paramètre en premier
+Puis le chemin avec le nom du fichier contenant les données qui sera créé à la fin du programme
+
 #stratégies mises en œuvre et commentaire à propos des performances (temps exécuteur et place mémoire)
-Parcours de la carte pour placer les routeurs en sélectionnant les cellules qui couvrent en wifi le plus de case possible. Temps d’exécution très long (plusieurs heures).
+Parcours de la carte pour placer les routeurs en sélectionnant les cellules qui couvrent en wifi le plus de cases possibles.
+
 #organisation des codes en classes, modules, fonctions. 
 Classe routeur 
 Classe Cellule 
