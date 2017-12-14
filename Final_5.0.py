@@ -96,6 +96,7 @@ class Routeur :
             
         if mini(listdist)[0] < 1.4 : 
             nb = 0
+            backbone.append(self.cellule.coord)  #si le routeur est à proximité du backbone, on ne cable que lui
         else :
             
             nb = 1 # Compteur du nombre de cases rajoutées au backbone (commence à 1 pour compter la case routeur)
@@ -268,7 +269,7 @@ def Placer_routeur():
 
     fin = False
     
-    while ( fin == False):
+    while ( fin == False and budget > prix_routeur):
         # Si ajouter un routeur est dans le budget
         if (budget - prix_routeur > 0) :
             # On choisit le routeur qui donne couvrent le plus de cellule
@@ -347,12 +348,23 @@ def fichier_de_fin(backbone, liste_routeurs):
 chemin_carte = input('Chemin de la carte à analyser :')
 nom_carte = input('Chemin + Nom du fichier de fin :') 
 donnees = recuperer_fichier(chemin_carte)
-#donnees = recuperer_fichier('D:\Documents\Polytech\Polyhash\cartes/charleston_road.in')
+#donnees = recuperer_fichier('charleston_road.in')
 
 # ==== Variables globales ========
 
 prix_backbone = int(donnees[3])
 prix_routeur = int(donnees[4])
+budget = int(donnees[5])
+backbone_coord = [int(donnees[6]),int(donnees[7])]
+liste_routeurs = []
+backbone = []
+backbone.append(backbone_coord)
+
+# ========= Lancement ============
+
+Placer_routeur()
+fichier_de_fin(backbone,liste_routeurs)
+
 budget = int(donnees[5])
 backbone_coord = [int(donnees[6]),int(donnees[7])]
 liste_routeurs = []
