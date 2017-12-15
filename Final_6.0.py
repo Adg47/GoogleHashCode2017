@@ -192,6 +192,17 @@ def recuperer_fichier(chemin_fichier):
     return donnees
 # --------------------------------
 
+# ======================================
+#       Fonction verification backbone
+# ======================================
+
+# --------------------------------
+def verifbackbone(backbone):   #vérifie qu'une case n'est pas cablée deux fois. Retourne la version "corrigée" du backbone.
+    verif=[]
+    for a in backbone :
+        if a not in verif :
+            verif.append(a)
+    return(verif) 
 # ================================
 #      Fonction auxiliaires
 # ================================
@@ -374,4 +385,5 @@ backbone.append(backbone_coord)
 # ========= Lancement ============
 
 Placer_routeur()
+backbone=verifbackbone(backbone)
 fichier_de_fin(backbone,liste_routeurs)
