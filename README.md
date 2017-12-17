@@ -16,7 +16,7 @@ Le chemin de la carte à analyser est demandé en paramètre en premier
 Puis le chemin avec le nom du fichier contenant les données qui sera créé à la fin du programme
 
 #stratégies mises en œuvre et commentaire à propos des performances (temps exécuteur et place mémoire)
-Parcours de la carte pour placer les routeurs en sélectionnant les cellules qui couvrent en wifi le plus de cases possibles.
+Selection à répétition de cellules couvrant le plus de cases possibles à chaque fois. Mise à jour du backbone au fur et à mesure.
 
 #organisation des codes en classes, modules, fonctions. 
 Classe routeur 
