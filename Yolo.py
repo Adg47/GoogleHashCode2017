@@ -367,5 +367,4 @@ backbone.append(backbone_coord)
 
 Placer_routeur()
 backbone=verifbackbone(backbone)
-print (budget)
 fichier_de_fin(backbone,liste_routeurs)
