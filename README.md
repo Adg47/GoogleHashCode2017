@@ -33,5 +33,5 @@ Elimination(coordonnees, routeur) : elimine la couverture de la cellule s’il y
 Placer_routeur() : fonction principale qui permet de placer les routeurs en utilisant les fonctions 
 
 #bugs et limitations
-
+La gestion du budget est très limitée. Elle ne permet pas d'avoir un score correct ou une bonne couverture pour certaines cartes. 
 #autre
