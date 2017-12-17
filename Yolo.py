@@ -3,7 +3,7 @@
 # ===============================
 
 from math import *
-
+import time as T
 # ================================
 #            Classes
 # ================================
@@ -260,10 +260,12 @@ def return_cellule(coord):
 
 # --------------------------------
 def verifbackbone(backbone):   #vérifie qu'une case n'est pas cablée deux fois. Retourne la version "corrigée" du backbone.
+    global budget
     verif=[]
     for a in backbone :
         if a not in verif :
             verif.append(a)
+    budget=budget+((len(backbone)-len(verif))*prix_backbone)
     return(verif) 
 # --------------------------------
 
@@ -281,18 +283,18 @@ def Placer_routeur():
 
     fin = False
     
-    while ( fin == False and budget > 4*prix_routeur):  
+    while ( fin == False and budget > prix_routeur):  
     #4*prix routeur est une estimation de ce qu'il faudrait. Normalement la condition fin devrait suffire
         cell = plusfort()    # On choisit la case où un routeur couvrirait le plus de cellule
         if (cell != None):
             # Si ajouter un routeur est dans le budget
-            if (budget - (prix_routeur +(cell.relier()[1] * prix_backbone)) > 0) :
+            if (budget - (prix_routeur +(cell.relier()[1] * prix_backbone)) > prix_routeur) :
                 liste_routeurs.append(cell) # Ajout du routeur dans la liste
                 print(cell.cellule.coord)
                 backbone = cell.relier()[0] # On met les coordonnées des cellules reliant le routeur au backbone
-                budget -= prix_routeur + cell.relier()[1] * prix_backbone # Budget s'autodécrémente
-                # On indique que les cases que couvrent le routeur sont couvertes par le wifi
-                cell.cellule.etat_wifi = True
+                budget = budget -(prix_routeur + cell.relier()[1] * prix_backbone) # Budget s'autodécrémente
+                backbone=verifbackbone(backbone) #on vérifie la backbone et on rajoute les sous des cases supprimées dans le budget
+                cell.cellule.etat_wifi = True # On indique que les cases que couvrent le routeur sont couvertes par le wifi
                 for case in cell.liste_cellules_couvertes :
                     case.etat_wifi = True
                 # On met à jour la liste des cellules couvertes par les routeurs candidats
@@ -351,7 +353,6 @@ def fichier_de_fin(backbone, liste_routeurs):
 chemin_carte = input('Chemin de la carte à analyser :')
 nom_carte = input('Chemin + Nom du fichier de fin :') 
 donnees = recuperer_fichier(chemin_carte)
-#donnees = recuperer_fichier('charleston_road.in')
 
 # ==== Variables globales ========
 
@@ -364,7 +365,8 @@ backbone = []
 backbone.append(backbone_coord)
 
 # ========= Lancement ============
-
+t1=T.clock()
 Placer_routeur()
-backbone=verifbackbone(backbone)
 fichier_de_fin(backbone,liste_routeurs)
+t2=T.clock()
+print(t2-t1)
